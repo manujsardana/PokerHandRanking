@@ -45,7 +45,14 @@
     <Compile Include="HandLevelMatchDetails.cs" />
     <Compile Include="HandLevels\Flush.cs" />
     <Compile Include="HandLevels\FourOfAKInd.cs" />
+    <Compile Include="HandLevels\FullHouse.cs" />
+    <Compile Include="HandLevels\HighestRank.cs" />
+    <Compile Include="HandLevels\OnePair.cs" />
     <Compile Include="HandLevels\RoyalFlush.cs" />
+    <Compile Include="HandLevels\Straight.cs" />
+    <Compile Include="HandLevels\StraightFlush.cs" />
+    <Compile Include="HandLevels\ThreeOfAKind.cs" />
+    <Compile Include="HandLevels\TwoPair.cs" />
     <Compile Include="HandValidation\HandValidationDetails.cs" />
     <Compile Include="HandValidation\HandValidator.cs" />
     <Compile Include="Interfaces\IHandLevelGenerator.cs" />
