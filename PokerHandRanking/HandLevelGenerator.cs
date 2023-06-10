@@ -9,6 +9,8 @@ namespace PokerHandRanking
         public IEnumerable<IHandLevel> GetHandLevels()
         {
             yield return new RoyalFlush();
+            yield return new FourOfAKInd();
+            yield return new Flush();
         }
     }
 }

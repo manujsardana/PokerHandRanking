@@ -39,12 +39,45 @@ namespace PokerHandRanking.Tests
             Assert.AreEqual("Royal Flush", result);
         }
 
+        [TestMethod]
+        public void When_FourCardsOfSameRank_Then_ReturnFourOfAKind()
+        {
+            var hand = new List<Card>()
+            {
+                new Card() { Rank = Rank.Ace, Suit = Suit.Club },
+                new Card() { Rank = Rank.Ace, Suit = Suit.Heart },
+                new Card() { Rank = Rank.Ace, Suit = Suit.Spade },
+                new Card() { Rank = Rank.Ace, Suit = Suit.Diamond },
+                new Card() { Rank = Rank.Ten, Suit = Suit.Club }
+            };
+
+            var result = pokerHandRanking.RankHand(hand);
+
+            Assert.AreEqual("Four of a Kind", result);
+        }
+
+        [TestMethod]
+        public void When_FourCardsOfSameSuit_Then_ReturnFlush()
+        {
+            var hand = new List<Card>()
+            {
+                new Card() { Rank = Rank.Ace, Suit = Suit.Club },
+                new Card() { Rank = Rank.Nine, Suit = Suit.Club },
+                new Card() { Rank = Rank.Three, Suit = Suit.Club },
+                new Card() { Rank = Rank.Four, Suit = Suit.Club },
+                new Card() { Rank = Rank.Five, Suit = Suit.Club }
+            };
+
+            var result = pokerHandRanking.RankHand(hand);
+
+            Assert.AreEqual("Flush", result);
+        }
         #endregion
 
         #region Hand Validation Tests
 
         [TestMethod]
-        public void When_LessOrMoreThan5Cards_Then_ReturnInvalidNumberOfCardsMessage()
+        public void When_LessThan5Cards_Then_ReturnInvalidNumberOfCardsMessage()
         {
             var hand = new List<Card>()
             {
@@ -52,6 +85,25 @@ namespace PokerHandRanking.Tests
                 new Card() { Rank = Rank.King, Suit = Suit.Club },
                 new Card() { Rank = Rank.Queen, Suit = Suit.Club },
                 new Card() { Rank = Rank.Jack, Suit = Suit.Club }
+            };
+
+            var result = pokerHandRanking.RankHand(hand);
+
+            Assert.AreEqual("Only 5 cards allowed", result);
+        }
+
+
+        [TestMethod]
+        public void When_MoreThan5Cards_Then_ReturnInvalidNumberOfCardsMessage()
+        {
+            var hand = new List<Card>()
+            {
+                new Card() { Rank = Rank.Ace, Suit = Suit.Club },
+                new Card() { Rank = Rank.King, Suit = Suit.Club },
+                new Card() { Rank = Rank.Queen, Suit = Suit.Club },
+                new Card() { Rank = Rank.Jack, Suit = Suit.Club },
+                new Card() { Rank = Rank.Ten, Suit = Suit.Club },
+                new Card() { Rank = Rank.Ten, Suit = Suit.Heart }
             };
 
             var result = pokerHandRanking.RankHand(hand);

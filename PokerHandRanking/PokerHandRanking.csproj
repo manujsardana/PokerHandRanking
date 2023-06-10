@@ -43,6 +43,8 @@
     <Compile Include="Card.cs" />
     <Compile Include="HandLevelGenerator.cs" />
     <Compile Include="HandLevelMatchDetails.cs" />
+    <Compile Include="HandLevels\Flush.cs" />
+    <Compile Include="HandLevels\FourOfAKInd.cs" />
     <Compile Include="HandLevels\RoyalFlush.cs" />
     <Compile Include="HandValidation\HandValidationDetails.cs" />
     <Compile Include="HandValidation\HandValidator.cs" />
