@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/PokerHandRanking/bin/Debug
+/PokerHandRanking/obj
+/PokerHandRanking.Tests/bin/Debug
+/PokerHandRanking.Tests/obj
