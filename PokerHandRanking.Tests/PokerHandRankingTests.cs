@@ -108,7 +108,24 @@ namespace PokerHandRanking.Tests
         }
 
         [TestMethod]
-        public void When_FiveCardsOfDifferentSuitInSequenece_Then_ReturnStraight()
+        public void When_LastFiveCardsOfDifferentSuitInSequenece_Then_ReturnStraight()
+        {
+            var hand = new List<Card>()
+            {
+                new Card() { Rank = Rank.King, Suit = Suit.Club },
+                new Card() { Rank = Rank.Queen, Suit = Suit.Heart },
+                new Card() { Rank = Rank.Jack, Suit = Suit.Spade },
+                new Card() { Rank = Rank.Ten, Suit = Suit.Diamond },
+                new Card() { Rank = Rank.Ace, Suit = Suit.Club }
+            };
+
+            var result = pokerHandRanking.RankHand(hand);
+
+            Assert.AreEqual("Straight", result);
+        }
+
+        [TestMethod]
+        public void When_FirstFiveCardsOfDifferentSuitInSequenece_Then_ReturnStraight()
         {
             var hand = new List<Card>()
             {

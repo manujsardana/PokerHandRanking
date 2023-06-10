@@ -1,6 +1,5 @@
 ﻿using PokerHandRanking.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PokerHandRanking.HandLevels
 {
@@ -8,27 +7,13 @@ namespace PokerHandRanking.HandLevels
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)
         {
-            cards = cards.OrderBy(x => x.Rank).ToList();
-            int count = -1;
-            foreach (Card card in cards)
+
+            if(HandLevelHelper.AreCardsInSequence(cards, false))
             {
-                int currentRank = (int)card.Rank;
-                if (count == -1)
-                {
-                    count = currentRank;
-                    count++;
-                }
-                else if (count == currentRank)
-                {
-                    count++;
-                    continue;
-                }
-                else
-                    return new HandLevelMatchDetails { HandLevelName = string.Empty, IsMatch = false };
-
+                return new HandLevelMatchDetails { HandLevelName = "Straight", IsMatch = true };
             }
-
-            return new HandLevelMatchDetails { HandLevelName = "Straight", IsMatch = true };
+            else
+                return new HandLevelMatchDetails { HandLevelName = string.Empty, IsMatch = false };
 
         }
     }
