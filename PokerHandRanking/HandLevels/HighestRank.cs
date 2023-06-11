@@ -1,8 +1,12 @@
 ﻿using PokerHandRanking.Interfaces;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Highest Ranking Card in Hand.
+    /// </summary>
     internal class HighestRank : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)

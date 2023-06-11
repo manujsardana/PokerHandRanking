@@ -1,10 +1,13 @@
 ﻿using PokerHandRanking.Interfaces;
-using System;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Four cards of Same Rank.
+    /// </summary>
     internal class FourOfAKInd : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)

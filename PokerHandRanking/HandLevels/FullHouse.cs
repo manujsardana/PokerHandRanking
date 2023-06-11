@@ -1,8 +1,12 @@
 ﻿using PokerHandRanking.Interfaces;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Three cards of same Rank + Two cards of same Rank.
+    /// </summary>
     internal class FullHouse : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)

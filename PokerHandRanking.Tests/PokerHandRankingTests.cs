@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using PokerHandRanking.Models;
 
 namespace PokerHandRanking.Tests
 {
@@ -23,7 +24,7 @@ namespace PokerHandRanking.Tests
         #region Hand Level Tests
 
         [TestMethod]
-        public void PokerHandRanking_returns_royal_flush()
+        public void When_AJQKTenOfSameSuit_Then_ReturnRoyalFlush()
         {
             var hand = new List<Card>()
             {
@@ -74,7 +75,7 @@ namespace PokerHandRanking.Tests
         }
 
         [TestMethod]
-        public void When_TwoSetsOfCardsWithTwoRanks_Then_ReturnTwoPair()
+        public void When_TwoSetsOfTwoCardsOfSameRank_Then_ReturnTwoPair()
         {
             var hand = new List<Card>()
             {
@@ -159,7 +160,7 @@ namespace PokerHandRanking.Tests
         }
 
         [TestMethod]
-        public void When_FourCardsOfSameSuit_Then_ReturnFlush()
+        public void When_FiveCardsOfSameSuitAndNotInSequence_Then_ReturnFlush()
         {
             var hand = new List<Card>()
             {
@@ -176,7 +177,7 @@ namespace PokerHandRanking.Tests
         }
 
         [TestMethod]
-        public void PokerHandRanking_returns_full_house()
+        public void WhenThreeCardsOfSameRankAndTwoCardsOfSameRank_Then_ReturnFullHouse()
         {
             var hand = new List<Card>()
             {
@@ -212,6 +213,15 @@ namespace PokerHandRanking.Tests
         #endregion
 
         #region Hand Validation Tests
+
+        [TestMethod]
+        public void When_HandIsNull_Then_ReturnNoCardsInTheHand()
+        {
+            
+            var result = pokerHandRanking.RankHand(null);
+
+            Assert.AreEqual("No cards in the hand", result);
+        }
 
         [TestMethod]
         public void When_LessThan5Cards_Then_ReturnInvalidNumberOfCardsMessage()

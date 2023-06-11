@@ -1,8 +1,12 @@
 ﻿using PokerHandRanking.Interfaces;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Two sets of two cards of same Rank.
+    /// </summary>
     internal class TwoPair : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)

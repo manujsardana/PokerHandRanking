@@ -1,8 +1,12 @@
 ﻿using PokerHandRanking.Interfaces;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Five Cards of Same Suit.
+    /// </summary>
     internal class Flush : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)

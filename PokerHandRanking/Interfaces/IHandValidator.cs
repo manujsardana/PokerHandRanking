@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PokerHandRanking.Models;
+using System.Collections.Generic;
 
 namespace PokerHandRanking.Interfaces
 {

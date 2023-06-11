@@ -1,4 +1,4 @@
-﻿namespace PokerHandRanking
+﻿namespace PokerHandRanking.Models
 {
     public enum Suit
     {

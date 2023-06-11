@@ -1,8 +1,12 @@
 ﻿using PokerHandRanking.Interfaces;
+using PokerHandRanking.Models;
 using System.Collections.Generic;
 
 namespace PokerHandRanking.HandLevels
 {
+    /// <summary>
+    /// Cards A, J, Q, K and 10 of same suit.
+    /// </summary>
     internal class RoyalFlush : IHandLevel
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)
@@ -34,9 +38,9 @@ namespace PokerHandRanking.HandLevels
             return new Dictionary<Rank, Rank>
             {
                 { Rank.Ace, Rank.Ace },
-                {Rank.King, Rank.King },
-                {Rank.Queen, Rank.Queen },
-                {Rank.Jack, Rank.Jack },
+                { Rank.King, Rank.King },
+                { Rank.Queen, Rank.Queen },
+                { Rank.Jack, Rank.Jack },
                 { Rank.Ten, Rank.Ten}
             };
         }

@@ -1,5 +1,6 @@
 ﻿using PokerHandRanking.Interfaces;
 using System.Collections.Generic;
+using PokerHandRanking.Models;
 
 namespace PokerHandRanking
 {
@@ -16,6 +17,8 @@ namespace PokerHandRanking
 
         public string RankHand(List<Card> hand)
         {
+            if (hand == null) return "No cards in the hand";
+
             var handValidationDetails = _handValidator.IsHandValid(hand);
             if (!handValidationDetails.IsValid)
             {
