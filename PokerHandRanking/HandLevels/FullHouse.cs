@@ -1,6 +1,7 @@
 ﻿using PokerHandRanking.Interfaces;
 using PokerHandRanking.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PokerHandRanking.HandLevels
 {
@@ -11,26 +12,16 @@ namespace PokerHandRanking.HandLevels
     {
         public HandLevelMatchDetails IsHandLevelMatch(List<Card> cards)
         {
-            Dictionary<Rank, int> rankCountdictionary = new Dictionary<Rank, int>();
 
-            foreach (Card card in cards)
+            var cardsByRank = cards.GroupBy(x => x.Rank).ToList();
+
+            if(cardsByRank.Count == 2)
             {
-                if (rankCountdictionary.TryGetValue(card.Rank, out int val))
-                {
-                    rankCountdictionary[card.Rank] = val + 1;
-                }
-                else
-                    rankCountdictionary.Add(card.Rank, 1);
+                if((cardsByRank[0].Count() == 3 && cardsByRank[1].Count() == 2) || (cardsByRank[0].Count() == 2 && cardsByRank[1].Count() == 3))
+                        return new HandLevelMatchDetails { IsMatch = true, HandLevelName = "Full House" };
             }
 
-            if (rankCountdictionary.Count == 2)
-            {
-                return new HandLevelMatchDetails { IsMatch = true, HandLevelName = "Full House" };
-            }
-            else
-                return new HandLevelMatchDetails { IsMatch = false, HandLevelName = string.Empty };
-
-
+            return new HandLevelMatchDetails { IsMatch = false, HandLevelName = string.Empty };
         }
     }
 }
